@@ -1,0 +1,23 @@
+nav{
+    height: 80px;
+    background-color: black;
+    /* background-image: linear-gradient(to right, rgb(255, 0, 255), #00ffff); */
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: space-between;
+}
+ul{
+    font-size: 150%;
+    display: flex;
+}
+nav li {
+    margin: 0 18px;
+}
+a:hover {
+    color: rgb(255, 0, 255);
+    transition: 0.5s;
+}
+nav a {
+    text-decoration: none;
+}
