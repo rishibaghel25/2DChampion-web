@@ -5,7 +5,7 @@
     <app-games *ngIf="isGamesVisible"></app-games>
     <button (click)="toggleLeaderboard()" class="btn">Leaderboard</button>
     <app-leaderboard *ngIf="isLeaderboardVisible"></app-leaderboard>
-    <button (click)="toggleAnimation()" class="btn">Animation</button>
-    <button class="btn">Login</button>
+    <button (click)="toggleAbout()" class="btn">About</button>
+    <app-about *ngIf="isAboutVisible"></app-about>
   </ul>
 </nav>

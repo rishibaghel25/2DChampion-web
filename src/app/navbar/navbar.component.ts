@@ -7,17 +7,17 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   isLeaderboardVisible: boolean = false;
-  isAnimationVisible: boolean = true;
+  isAboutVisible: boolean = false;
   isGamesVisible: boolean = false;
 
   toggleLeaderboard() {
     this.isLeaderboardVisible = !this.isLeaderboardVisible;
-    this.isAnimationVisible = false;
+    this.isAboutVisible = false;
     this.isGamesVisible = false;
   }
 
-  toggleAnimation() {
-    this.isAnimationVisible = !this.isAnimationVisible;
+  toggleAbout() {
+    this.isAboutVisible = !this.isAboutVisible;
     this.isLeaderboardVisible = false;
     this.isGamesVisible = false;
   }
@@ -25,6 +25,6 @@ export class NavbarComponent {
   toggleGames() {
     this.isGamesVisible = !this.isGamesVisible;
     this.isLeaderboardVisible = false;
-    this.isAnimationVisible = false;
+    this.isAboutVisible = false;
   }
 }

@@ -9,6 +9,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { GamesComponent } from './games/games.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GamesComponent } from './games/games.component';
     LeaderboardComponent,
     LoginComponent,
     SignupComponent,
-    GamesComponent
+    GamesComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
