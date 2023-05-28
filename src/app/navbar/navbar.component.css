@@ -1,9 +1,7 @@
 nav{
     height: 80px;
     background-color: black;
-    /* background-image: linear-gradient(to right, rgb(255, 0, 255), #00ffff); */
     display: flex;
-    /* flex-direction: row; */
     align-items: center;
     justify-content: space-between;
 }
@@ -20,4 +18,8 @@ a:hover {
 }
 nav a {
     text-decoration: none;
+}
+.btn{
+    background-color: black;color: blue;
+    font-size: 100%;
 }
