@@ -1,12 +1,11 @@
 <nav>
-    <img src="navimg.svg" alt="2DChampion">
-    <ul>
-        <button class="btn">Game</button>
-      <button (click)="showLeaderboard()" class="btn">Leaderboard</button>
-      <app-leaderboard *ngIf="isLeaderboardVisible"></app-leaderboard>
-      <button class="btn">Login</button>
-    </ul>
-  </nav>
-  
-
-  
+  <img src="navimg.svg" alt="2DChampion">
+  <ul>
+    <button (click)="toggleGames()" class="btn">games</button>
+    <app-games *ngIf="isGamesVisible"></app-games>
+    <button (click)="toggleLeaderboard()" class="btn">Leaderboard</button>
+    <app-leaderboard *ngIf="isLeaderboardVisible"></app-leaderboard>
+    <button (click)="toggleAnimation()" class="btn">Animation</button>
+    <button class="btn">Login</button>
+  </ul>
+</nav>

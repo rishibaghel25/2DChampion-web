@@ -8,6 +8,7 @@ import { HomeanimationComponent } from './homeanimation/homeanimation.component'
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SignupComponent } from './signup/signup.component';
     HomeanimationComponent,
     LeaderboardComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
