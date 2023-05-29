@@ -9,6 +9,7 @@ export class NavbarComponent {
   isLeaderboardVisible: boolean = false;
   isAboutVisible: boolean = false;
   isGamesVisible: boolean = false;
+  isLoginVisible: boolean = false;
 
   toggleLeaderboard() {
     this.isLeaderboardVisible = !this.isLeaderboardVisible;
@@ -20,6 +21,12 @@ export class NavbarComponent {
     this.isAboutVisible = !this.isAboutVisible;
     this.isLeaderboardVisible = false;
     this.isGamesVisible = false;
+  }
+
+  toggleLogin() {
+    this.isLoginVisible = !this.isLoginVisible;
+    this.isLeaderboardVisible = false;
+    this.isAboutVisible = false;
   }
 
   toggleGames() {
