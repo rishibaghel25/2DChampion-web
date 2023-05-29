@@ -1,11 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
 body {
+  width: 1400px;
+  height: 750px;
     align-items: center;
     width: 80%;
     background-color: #000000;
     font-family:'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
-    border: solid white;
+    border: solid #a200ff 25px;
   }
   
   .container {
@@ -17,7 +25,7 @@ body {
   h1 {
     margin-bottom: 10%;
     background-image: linear-gradient(to right, rgb(255, 0, 255), #00ffff);
-    border: solid #a200ff;
+    border: solid #ffffff;
     width: 118%;
     text-align: center;
     font-size: 56px;

@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  isSignupVisible: boolean = false;
 
+  toggleSignup() {
+    this.isSignupVisible = !this.isSignupVisible;
+  }
 }

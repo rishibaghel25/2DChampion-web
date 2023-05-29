@@ -1,15 +1,28 @@
 main {
+  font-family:'Courier New', Courier, monospace;
   width: 1400px;
   height: 750px;
-    border: solid #FF00FF 5px;
+    border: solid #a200ff 25px;
     background: black;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     margin: 0 auto;
-    height: 100%;
+  }
+  .animation {
+    animation: fade-in 1s ease-out;
+  }
+  
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   #game-list {
@@ -70,9 +83,12 @@ main {
     background-color: #f8f8f8;
   }
   h2{
-    
+    padding-top: 0.8%;
+    height: 60px;
+    position: relative;
     text-align: center;
     width: 100%;
     background-color: #a200ff;
     border: solid #ffffff ;
+    margin-bottom: 10%;
   }
