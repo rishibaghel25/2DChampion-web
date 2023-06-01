@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Simple Login Form Example</title>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
-  <link rel="stylesheet" href="./login.component.css">
-</head>
 <body>
   <div class="login-form">
     <form>
       <h1 style="color: black; font-weight: 700; padding-top: 0px; padding-left: 33%;">LOGIN</h1>
-      <div class="content">
+      <div class="content" *ngIf="isLoginVisible && !isSignupVisible">
         <div class="input-field">
           <input type="username" placeholder="Username" autocomplete="nope">
         </div>
@@ -20,12 +12,11 @@
         <a href="#" class="link">Forgot Your Password?</a>
       </div>
       <div class="action">
-        <button (click)="toggleSignup()" class="btn">Signup</button>
-        <app-signup *ngIf="isSignupVisible"></app-signup>
+        <button (click)="toggleSignup($event)" class="btn">Signup</button>
         <button>Sign in</button>
+        <!-- <button *ngIf="isLoginVisible && !isSignupVisible" (click)="login()" class="btn">Sign in</button> -->
       </div>
+      <app-signup *ngIf="isSignupVisible"></app-signup>
     </form>
   </div>
-  <script src="./login.component.js"></script>
 </body>
-</html>
