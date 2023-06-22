@@ -3,20 +3,20 @@
     <div class="Signup-form" style="
     margin-top: 10%;
 ">
-        <form>
+        <form (ngSubmit)="submit()">
             <h1 style="color: black; font-weight: 700; padding-top: 0px; padding-left: 33%;">SIGNUP</h1>
             <div class="content">
                 <div class="input-field">
-                    <input type="text" placeholder="Name" autocomplete="off">
+                    <input type="text" placeholder="Name" [(ngModel)]="form.name" name="name" >
                 </div>
                 <div class="input-field">
-                    <input type="text" placeholder="Username" autocomplete="off">
+                    <input type="text" placeholder="Username" [(ngModel)]="form.username" name="username">
                 </div>
                 <div class="input-field">
-                    <input type="email" placeholder="Email" autocomplete="off">
+                    <input type="email" placeholder="Email" [(ngModel)]="form.email" name="email">
                 </div>
                 <div class="input-field">
-                    <input type="password" placeholder="Password" autocomplete="new-password">
+                    <input type="password" placeholder="Password" [(ngModel)]="form.password" name="password">
                 </div>
             </div>
             <div class="action">

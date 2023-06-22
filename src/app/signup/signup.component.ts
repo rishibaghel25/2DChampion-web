@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SignupForm } from '../types/auth';
+
 
 @Component({
   selector: 'app-signup',
@@ -15,4 +17,14 @@ export class SignupComponent {
     this.isLoginVisible = !this.isLoginVisible;
    
   }
+  form: SignupForm={
+    name:'',
+    username:'',
+    email:'',
+    password:'',
+  };
+  submit(){
+    console.log(this.form)
+  }
+
 }

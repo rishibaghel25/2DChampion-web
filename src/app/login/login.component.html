@@ -1,13 +1,13 @@
 <body>
   <div class="login-form">
-    <form>
+    <form (ngSubmit)="submit()">
       <h1 style="color: black; font-weight: 700; padding-top: 0px; padding-left: 33%;">LOGIN</h1>
       <div class="content" >
         <div class="input-field">
-          <input type="username" placeholder="Username" autocomplete="nope">
+          <input type="username" id="username" placeholder="Username"  [(ngModel)]="form.username" name="username">
         </div>
         <div class="input-field">
-          <input type="password" placeholder="Password" autocomplete="new-password">
+          <input type="password" id= "password" placeholder="Password"   [(ngModel)]="form.password" name="password">
         </div>
         <a href="#" class="link">Forgot Your Password?</a>
       </div>

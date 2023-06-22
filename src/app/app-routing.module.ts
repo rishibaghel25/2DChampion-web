@@ -3,11 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AboutComponent } from './about/about.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { GamesComponent } from './games/games.component';
 
 const routes: Routes = [
   {path:'',component:NavbarComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
+  {path:'about',component:AboutComponent},
+  {path:'leaderboard',component:LeaderboardComponent},
+  {path:'games',component:GamesComponent},
 
 ];
 
