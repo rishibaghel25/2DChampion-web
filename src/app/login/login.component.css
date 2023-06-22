@@ -7,8 +7,7 @@
 
 body {
   font-family: 'Courier New', Courier, monospace;
-  width: 1504px;
-  height: 773px;
+  height: 1001px;
   padding-top: 52px;
   border: solid #a200ff 25px;
   background: black;
@@ -20,6 +19,7 @@ body {
   width: 500px;
   margin: 65px auto;
   display: flex;
+  margin-top: 12%;
   flex-direction: column;
   border-radius: 4px;
   box-shadow: 0 2px 25px #a200ff;
@@ -162,4 +162,19 @@ h1 {
   font-size: 50px;
   background-color: #a200ff;
   border: solid white 2px;
+}
+.btn {
+  width: 100%;
+  border: solid white 2px;
+  padding: 18px;
+  font-family: 'Rubik', sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  background: #000000;
+  color: #ffffff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0;
+  letter-spacing: 0.2px;
+  outline: 0;
+  transition: all .3s;
 }

@@ -2,7 +2,7 @@
   <div class="login-form">
     <form>
       <h1 style="color: black; font-weight: 700; padding-top: 0px; padding-left: 33%;">LOGIN</h1>
-      <div class="content" *ngIf="isLoginVisible && !isSignupVisible">
+      <div class="content" >
         <div class="input-field">
           <input type="username" placeholder="Username" autocomplete="nope">
         </div>
@@ -12,11 +12,9 @@
         <a href="#" class="link">Forgot Your Password?</a>
       </div>
       <div class="action">
-        <button (click)="toggleSignup($event)" class="btn">Signup</button>
+        <a routerLink="/signup" class="btn">Sign up</a>
         <button>Sign in</button>
-        <!-- <button *ngIf="isLoginVisible && !isSignupVisible" (click)="login()" class="btn">Sign in</button> -->
       </div>
-      <app-signup *ngIf="isSignupVisible"></app-signup>
     </form>
   </div>
 </body>

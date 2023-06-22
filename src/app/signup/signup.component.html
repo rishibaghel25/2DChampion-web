@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>2D Champion - Signup</title>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
-    <link rel="stylesheet" href="./signup.component.css">
-</head>
-
-<body>
-    <div class="login-form">
+<body  >
+    <div class="Signup-form" style="
+    margin-top: 10%;
+">
         <form>
             <h1 style="color: black; font-weight: 700; padding-top: 0px; padding-left: 33%;">SIGNUP</h1>
             <div class="content">
@@ -27,11 +20,9 @@
                 </div>
             </div>
             <div class="action">
-                <button (click)="openLoginPage()" class="btn">Login</button>
+                <a routerLink="/login" class="btn">Login</a>
                 <button>Sign up</button>
             </div>
         </form>
     </div>
 </body>
-
-</html>

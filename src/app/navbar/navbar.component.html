@@ -14,7 +14,7 @@
       <app-about *ngIf="isAboutVisible"></app-about>
     </li>
     <li>
-      <button (click)="toggleLogin()" class="btn">Login</button>
+      <a routerLink="login" target="_blank" class="btn">Login</a>
       <app-login *ngIf="isLoginVisible"></app-login>
     </li>
   </ul>

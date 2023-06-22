@@ -7,9 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  constructor(private router: Router) {}
+  isLoginVisible: boolean = false;
 
-  openLoginPage() {
-    this.router.navigate(['src/app/login/login.component.html']);
+  toggleLogin(event: Event) {
+    event.preventDefault(); // Prevent the default behavior of the button click
+    
+    this.isLoginVisible = !this.isLoginVisible;
+   
   }
 }
