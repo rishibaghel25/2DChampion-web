@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginForm } from '../types/auth';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,20 +10,25 @@ import { LoginForm } from '../types/auth';
 })
 export class LoginComponent {
   isSignupVisible: boolean = false;
-  username: string='';
+  email: string='';
   form: LoginForm={
-    username:'',
-    password:'',
+    email: '',
+    password: ''
   };
-
-
 
   toggleSignup(event: Event) {
     
     this.isSignupVisible = !this.isSignupVisible;
    
   }
+  constructor(private authService: AuthService){}
   submit(){
-    console.log(this.form)
+this.authService.login(this.form)
+  }
+  isLoading(){
+    return this.authService.isloading;
+  }
+  isAuthenticated(){
+    return this.authService.isAuthenticated;
   }
 }

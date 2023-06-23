@@ -13,9 +13,16 @@
       <button (click)="toggleAbout()" class="btn">About</button>
       <app-about *ngIf="isAboutVisible"></app-about>
     </li>
-    <li>
-      <a routerLink="login" target="_blank" class="btn">Login</a>
-    </li>
+    <ng-container *ngIf="!isAuthenticated()"> 
+      <li>
+        <a routerLink="login" target="_blank" class="btn">Login</a>
+      </li>
+    </ng-container>
+    <ng-container *ngIf="isAuthenticated()"> 
+      <li>
+        <button (click)="logout()" class="btn">Logout</button>
+      </li>
+    </ng-container>
   </ul>
 </nav>
 

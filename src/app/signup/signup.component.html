@@ -1,55 +1,48 @@
-
-<body  >
-    <div class="Signup-form" style="
-    margin-top: 10%;
-">
-        <form (ngSubmit)="submit()" #myForm="ngForm">
-            <h1 style="color: black; font-weight: 700; padding-top: 0px; padding-left: 33%;">SIGNUP</h1>
-            <div class="content">
-                <div class="input-field">
-                    <input type="text" placeholder="Name" [(ngModel)]="form.name" name="name" #name="ngModel" required>
-                </div>
-                <div style="
-                border: solid red;
-                background: palevioletred;
-            "
-            *ngIf="name.invalid && (name.touched || name.dirty)">Name field must be valid</div>
-
-
-                <div class="input-field">
-                    <input type="text" placeholder="Username" [(ngModel)]="form.username" name="username" #username="ngModel" required>
-                </div>
-                <div style="
-                border: solid red;
-                background: palevioletred;"
-                 *ngIf="username.invalid && (username.touched || username.dirty)">Username field must be valid</div>
-
-
-
-                <div class="input-field">
-                    <input type="email" placeholder="Email" [(ngModel)]="form.email" name="email" #email="ngModel" required>
-                </div>
-                <div style="
-                border: solid red;
-                background: palevioletred;
-            " *ngIf="email.invalid && (email.touched || email.dirty)">Email field must be valid</div>
-
-
-
-
-                <div class="input-field">
-                    <input type="password" placeholder="Password" [(ngModel)]="form.password" name="password" #password="ngModel" required>
-                </div>
-                <div style="
-                border: solid red;
-                background: palevioletred;
-            " *ngIf="password.invalid && (password.touched || password.dirty)">Password field must be valid</div>
-
-            </div>
-            <div class="action">
-                <a routerLink="/login" class="btn">Login</a>
-                <button [disabled]="myForm.form.invalid">Sign up</button>
-            </div>
-        </form>
+<body>
+    <div class="Signup-form" style="margin-top: 10%;">
+      <form (ngSubmit)="submit()" #myForm="ngForm">
+        <h1 style="color: black; font-weight: 700; padding-top: 0px; padding-left: 33%;">SIGNUP</h1>
+        <div class="content">
+          <div class="input-field">
+            <input type="text" placeholder="Name" [(ngModel)]="form.name" name="name" #name="ngModel" required>
+          </div>
+          <div style="border: solid red; background: palevioletred;" *ngIf="name.invalid && (name.touched || name.dirty)">
+            Name field must be valid
+          </div>
+  
+          <div class="input-field">
+            <input type="text" placeholder="Username" [(ngModel)]="form.username" name="username" #username="ngModel" required>
+          </div>
+          <div style="border: solid red; background: palevioletred;" *ngIf="username.invalid && (username.touched || username.dirty)">
+            Username field must be valid
+          </div>
+  
+          <div class="input-field">
+            <input type="email" placeholder="Email" [(ngModel)]="form.email" name="email" #email="ngModel" required>
+          </div>
+          <div style="border: solid red; background: palevioletred;" *ngIf="email.invalid && (email.touched || email.dirty)">
+            Email field must be valid
+          </div>
+  
+          <div class="input-field">
+            <input type="password" placeholder="Password" [(ngModel)]="form.password" name="password" #password="ngModel" required>
+          </div>
+          <div style="border: solid red; background: palevioletred;" *ngIf="password.invalid && (password.touched || password.dirty)">
+            Password field must be valid
+          </div>
+        </div>
+        <div class="action">
+          <a routerLink="/login" class="btn">Login</a>
+          <button [disabled]="myForm.form.invalid">
+            <ng-container *ngIf="isLoading()">
+              Loading...
+            </ng-container>
+            <ng-container *ngIf="!isLoading()">
+              Sign up
+            </ng-container>
+          </button>
+        </div>
+      </form>
     </div>
-</body>
+  </body>
+  
