@@ -47,6 +47,8 @@ export class AuthService {
       })
       .finally(() => {
         this.isloading = false;
+        this.router.navigate(['login']);
+        alert("Signup Completed")
       });
   }
 

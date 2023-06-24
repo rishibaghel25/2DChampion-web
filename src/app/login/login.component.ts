@@ -24,6 +24,7 @@ export class LoginComponent {
   constructor(private authService: AuthService){}
   submit(){
 this.authService.login(this.form)
+alert("Login Completed");
   }
   isLoading(){
     return this.authService.isloading;
