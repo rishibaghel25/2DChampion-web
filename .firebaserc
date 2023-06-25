@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "dchampion-4ce9f"
+  },
+  "targets": {
+    "dchampion-4ce9f": {
+      "hosting": {
+        "2Dchampion_website": [
+          "dchampion-4ce9f"
+        ]
+      }
+    }
   }
 }

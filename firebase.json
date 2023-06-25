@@ -1,16 +1,23 @@
 {
-  "hosting": {
-    "public": "dist/2-dchampion-website",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "public": "dist/2-dchampion-website",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "2Dchampion_website",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
 }
