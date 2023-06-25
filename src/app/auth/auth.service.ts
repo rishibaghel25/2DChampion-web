@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class AuthService {
   isloading: boolean = false;
   isAuthenticated: boolean = false;
-
+  isLoading(): boolean {
+    return this.isloading;
+  }
   constructor(private router: Router) {}
 
   login(form: LoginForm) {
