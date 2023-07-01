@@ -1,5 +1,4 @@
 import { SignupForm } from '../types/auth';
-import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 import { getDatabase, ref, query, orderByChild, equalTo, get, push, set } from 'firebase/database';
 import { Component } from '@angular/core';
@@ -10,10 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private router: Router) {}
 
   isLoginVisible: boolean = false;
   isLoading: boolean = false; // Add a property to track loading state
@@ -29,10 +25,6 @@ export class SignupComponent {
     email: '',
     password: '',
   };
-
-  submit() {
-    this.authService.signup(this.form);
-  }
 
   signupUser(value: any) {
     const database = getDatabase();
@@ -55,9 +47,8 @@ export class SignupComponent {
             this.isLoading = false; // Set isLoading to false when the process completes or encounters an error
           } else {
             // All fields are valid, proceed with signup
-            const newUserId = this.generateNumericId(); // Generate a numeric ID
             const newUserRef = push(usersRef);
-            const newUserKey = newUserRef.key as string;
+            const newUserId = newUserRef.key as string;
 
             set(ref(database, 'users/' + newUserId), {
               name: value.name,
@@ -76,13 +67,5 @@ export class SignupComponent {
         });
       }
     });
-  }
-
-  // Function to generate numeric IDs
-  private counter = 0;
-
-  generateNumericId(): string {
-    this.counter++;
-    return this.counter.toString();
   }
 }

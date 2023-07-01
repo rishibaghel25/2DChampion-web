@@ -1,27 +1,27 @@
 <body>
   <div class="login-form">
-    <form (ngSubmit)="submit()"  #myForm="ngForm">
+    <form (ngSubmit)="submit()" #myForm="ngForm">
       <h1 style="color: black; font-weight: 700; padding-top: 0px; padding-left: 33%;">LOGIN</h1>
-      <div class="content" >
+      <div class="content">
         <div class="input-field">
-          <input type="email" id="email" placeholder="email"  [(ngModel)]="form.email" name="email">
+          <input type="text" id="username" placeholder="Username" [(ngModel)]="form.username" name="username">
         </div>
         <div class="input-field">
-          <input type="password" id= "password" placeholder="Password"   [(ngModel)]="form.password" name="password">
+          <input type="password" id="password" placeholder="Password" [(ngModel)]="form.password" name="password">
         </div>
         <a href="#" class="link">Forgot Your Password?</a>
       </div>
       <div class="action">
         <a routerLink="/signup" class="btn">Sign up</a>
         <button type="submit" [disabled]="myForm.form.invalid">
-          <ng-container *ngIf="isLoading()">
+          <ng-container *ngIf="isLoading; else signInText">
             Loading...
           </ng-container>
-          <ng-container *ngIf="!isLoading()">
+          <ng-template #signInText>
             Sign in
-          </ng-container>
-          </button>
+          </ng-template>
+        </button>
       </div>
     </form>
-  </div>
+  </div>  
 </body>
