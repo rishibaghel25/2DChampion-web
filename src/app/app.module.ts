@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     LoginComponent,
     SignupComponent,
     GamesComponent,
-    AboutComponent
+    AboutComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

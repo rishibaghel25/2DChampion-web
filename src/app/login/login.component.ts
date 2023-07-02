@@ -2,6 +2,7 @@ import { LoginForm } from '../types/auth';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { getDatabase, ref, query, orderByChild, equalTo, get } from 'firebase/database';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
     password: ""
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   toggleSignup(event: Event) {
     event.preventDefault();
@@ -25,39 +26,17 @@ export class LoginComponent {
 
   submit() {
     this.isLoading = true;
-  
-    const database = getDatabase();
-    const usersRef = ref(database, 'users');
-    const usernameQuery = query(usersRef, orderByChild('username'), equalTo(this.form.username));
-  
-    get(usernameQuery)
-      .then((snapshot) => {
-        console.log('Snapshot value:', snapshot.val());
-        console.log('Form values:', this.form);
-        console.log('Form password:', this.form.password);
-  
-        if (snapshot.exists()) {
-          const user = snapshot.val();
-          const userId = Object.keys(user)[0]; // Get the user ID
-          const userData = user[userId]; // Get the user data object
-  
-          console.log('User password type:', typeof userData.password);
-          console.log('Form password type:', typeof this.form.password);
-  
-          if (userData.password === this.form.password) {
-            alert('Login successful');
-            this.router.navigate(['/']); // Navigate to the desired page after successful login
-          } else {
-            alert('Invalid username or password');
-          }
-        } else {
-          alert('Invalid username or password');
-        }
-        this.isLoading = false;
+
+    this.authService.login(this.form)
+      .then(() => {
+        alert('Login successful');
+        this.router.navigate(['/']); // Navigate to the desired page after successful login
       })
-      .catch((error) => {
-        console.error('Error during login:', error);
+      .catch((error: any) => {
+        alert('Invalid username or password');
+      })
+      .finally(() => {
         this.isLoading = false;
       });
   }
-}  
+}

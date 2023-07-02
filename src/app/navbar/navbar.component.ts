@@ -7,51 +7,42 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  isLeaderboardVisible: boolean = false;
+  isAboutVisible: boolean = false;
+  isGamesVisible: boolean = false;
+  isProfileVisible: boolean = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
     // Initialize any necessary code or configuration
   }
 
-  isAuthenticated() {
-    return this.authService.isAuthenticated;
+  logout(): void {
+    this.authService.logout();
   }
 
-  logout(){
-    this.authService.logout()
-  }
-
-  isLeaderboardVisible: boolean = false;
-  isAboutVisible: boolean = false;
-  isGamesVisible: boolean = false;
-  isLoginVisible: boolean = false;
-
-  toggleLeaderboard() {
+  toggleLeaderboard(): void {
     this.isLeaderboardVisible = !this.isLeaderboardVisible;
     this.isAboutVisible = false;
     this.isGamesVisible = false;
-    this.isLoginVisible = false;
   }
 
-  toggleAbout() {
+  toggleAbout(): void {
     this.isAboutVisible = !this.isAboutVisible;
     this.isLeaderboardVisible = false;
     this.isGamesVisible = false;
-    this.isLoginVisible = false;
   }
 
-  toggleLogin() {
-    this.isLoginVisible = !this.isLoginVisible;
-    this.isLeaderboardVisible = false;
-    this.isAboutVisible = false;
-    this.isGamesVisible = false;
-  }
-
-  toggleGames() {
+  toggleGames(): void {
     this.isGamesVisible = !this.isGamesVisible;
     this.isLeaderboardVisible = false;
     this.isAboutVisible = false;
-    this.isLoginVisible = false;
+  }
+  
+  toggleProfile(): void {
+    this.isProfileVisible = !this.isProfileVisible;
+    this.isLeaderboardVisible = false;
+    this.isAboutVisible = false;
   }
 }

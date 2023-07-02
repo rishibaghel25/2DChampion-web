@@ -13,16 +13,16 @@
       <button (click)="toggleAbout()" class="btn">About</button>
       <app-about *ngIf="isAboutVisible"></app-about>
     </li>
-    <ng-container *ngIf="!isAuthenticated()"> 
-      <li>
-        <a routerLink="login" target="_blank" class="btn">Login</a>
-      </li>
-    </ng-container>
-    <ng-container *ngIf="isAuthenticated()"> 
-      <li>
-        <button (click)="logout()" class="btn">Logout</button>
-      </li>
-    </ng-container>
+    <li *ngIf="authService.isLoggedIn()">
+      <button (click)="toggleProfile()" class="btn">Profile</button>
+      <app-profile *ngIf="isProfileVisible"></app-profile>
+    </li>
+    <li *ngIf="!authService.isLoggedIn()">
+      <a routerLink="login" target="_blank" class="btn">Login</a>
+    </li>
+    <li *ngIf="authService.isLoggedIn()">
+      <button (click)="logout()" class="btn">Logout</button>
+    </li>
   </ul>
 </nav>
 
