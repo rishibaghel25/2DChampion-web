@@ -26,23 +26,30 @@ export class NavbarComponent implements OnInit {
     this.isLeaderboardVisible = !this.isLeaderboardVisible;
     this.isAboutVisible = false;
     this.isGamesVisible = false;
+    this.isProfileVisible=false;
   }
 
   toggleAbout(): void {
     this.isAboutVisible = !this.isAboutVisible;
     this.isLeaderboardVisible = false;
     this.isGamesVisible = false;
+    this.isProfileVisible=false;
+
   }
 
   toggleGames(): void {
     this.isGamesVisible = !this.isGamesVisible;
     this.isLeaderboardVisible = false;
     this.isAboutVisible = false;
+    this.isProfileVisible=false;
+
   }
   
   toggleProfile(): void {
     this.isProfileVisible = !this.isProfileVisible;
     this.isLeaderboardVisible = false;
     this.isAboutVisible = false;
+    this.isGamesVisible = false;
+
   }
 }
