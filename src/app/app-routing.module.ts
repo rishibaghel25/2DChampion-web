@@ -6,6 +6,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AboutComponent } from './about/about.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { GamesComponent } from './games/games.component';
+import { SnakeComponent } from './games/snake/snake.component';
 
 const routes: Routes = [
   {path:'',component:NavbarComponent},
@@ -14,6 +15,9 @@ const routes: Routes = [
   {path:'about',component:AboutComponent},
   {path:'leaderboard',component:LeaderboardComponent},
   {path:'games',component:GamesComponent},
+  {path:'snake',component:SnakeComponent},
+
+
 
 ];
 

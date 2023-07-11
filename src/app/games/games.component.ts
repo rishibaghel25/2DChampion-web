@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent {
-
+  playGame(gameName: string) {
+    if (gameName === 'snake') {
+      window.open('snake-game-url', '_blank');
+    }
+    // Add logic for other games if needed
+  }
 }

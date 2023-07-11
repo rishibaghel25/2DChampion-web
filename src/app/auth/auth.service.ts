@@ -1,20 +1,29 @@
 import { Injectable } from '@angular/core';
 import { LoginForm } from '../types/auth';
 import { Router } from '@angular/router';
-import { getDatabase, ref, query, orderByChild, equalTo, get, DataSnapshot } from 'firebase/database';
+import { getDatabase, ref, query, orderByChild, equalTo, get, DataSnapshot, set, child } from 'firebase/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   isAuthenticated: boolean = false;
-  username: string = ''; // Add a property to store the logged-in username
+  username: string = '';
 
   constructor(private router: Router) {}
 
   logout(): void {
     this.isAuthenticated = false;
     this.router.navigate(['login']);
+  }
+
+  getHighScore(userId: string): Promise<number> {
+    const database = getDatabase();
+    const highScoreRef = ref(database, `users/${userId}/SnakeGameHighScore`);
+
+    return get(highScoreRef).then((snapshot: DataSnapshot) => {
+      return snapshot.val();
+    });
   }
 
   isLoggedIn(): boolean {
@@ -31,7 +40,6 @@ export class AuthService {
 
   login(loginForm: LoginForm): Promise<void> {
     this.isAuthenticated = false;
-
     const database = getDatabase();
     const usersRef = ref(database, 'users');
     const usernameQuery = query(usersRef, orderByChild('username'), equalTo(loginForm.username));
@@ -45,7 +53,8 @@ export class AuthService {
           if (userData.password === loginForm.password) {
             this.isAuthenticated = true;
             this.setUsername(userData.username); // Set the logged-in username
-            return;
+
+            return; // No need to initialize high score here
           }
         }
 
@@ -78,5 +87,14 @@ export class AuthService {
           reject(error);
         });
     });
+  }
+  storeHighScore(userId: string, highScore: number): Promise<void> {
+    const database = getDatabase();
+    const highScoreRef = ref(database, `HighScore/${userId}`);
+    const userData = {
+      SnakeGameHighScore: highScore
+    };
+
+    return set(highScoreRef, userData);
   }
 }

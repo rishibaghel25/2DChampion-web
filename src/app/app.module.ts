@@ -16,6 +16,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { ProfileComponent } from './profile/profile.component';
+import { SnakeComponent } from './games/snake/snake.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProfileComponent } from './profile/profile.component';
     SignupComponent,
     GamesComponent,
     AboutComponent,
-    ProfileComponent
+    ProfileComponent,
+    SnakeComponent
   ],
   imports: [
     BrowserModule,
