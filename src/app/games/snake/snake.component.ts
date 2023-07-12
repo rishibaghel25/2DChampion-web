@@ -1,6 +1,6 @@
-import { Router } from '@angular/router';
+// snake.component.ts
 import { Component, OnInit } from '@angular/core';
-import { getDatabase, ref, set, child } from 'firebase/database';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
@@ -22,8 +22,6 @@ export class SnakeComponent implements OnInit {
   isGameOver = false;
   username = '';
 
-  database = getDatabase();
-
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
@@ -33,53 +31,51 @@ export class SnakeComponent implements OnInit {
     this.placeFood();
     document.addEventListener('keydown', this.onKeydown.bind(this));
 
-      // Retrieve high score from the database
-      const userId = this.authService.getUsername(); // Get the logged-in user's ID
-      if (userId) {
-        this.authService.getHighScore(userId).then((highScore: number) => {
-          this.highScore = highScore || 0;
-        });
-      }
+    // Retrieve high score from the database
+    const userId = this.authService.getUsername(); // Get the logged-in user's ID
+    if (userId) {
+      this.authService.getHighScore(userId).then((highScore: number) => {
+        this.highScore = highScore || 0;
+      });
+    }
+  }
+
+  startGame() {
+    // Reset high score and score
+    this.score = 0;
+    this.isGameOver = false;
+
+    // Reset snake position
+    this.snake.style.left = '0px';
+    this.snake.style.top = '0px';
+
+    // Remove existing snake segments
+    const segments = this.snake.getElementsByClassName('snake-segment');
+    while (segments[0]) {
+      segments[0].parentNode?.removeChild(segments[0]);
     }
 
+    // Retrieve the high score from the database
+    const userId = this.authService.getUsername();
+    if (userId) {
+      this.authService.getHighScore(userId).then((highScore: number) => {
+        this.highScore = highScore || 0;
 
-    startGame() {
-      // Reset high score and score
-      this.score = 0;
-      this.isGameOver = false;
-
-      // Reset snake position
-      this.snake.style.left = '0px';
-      this.snake.style.top = '0px';
-
-      // Remove existing snake segments
-      const segments = this.snake.getElementsByClassName('snake-segment');
-      while (segments[0]) {
-        segments[0].parentNode?.removeChild(segments[0]);
-      }
-
-      // Retrieve the high score from the database
-      const userId = this.authService.getUsername();
-      if (userId) {
-        this.authService.getHighScore(userId).then((highScore: number) => {
-          this.highScore = highScore || 0;
-
-          // Start the game logic
-          clearInterval(this.timer);
-          this.timer = setInterval(this.moveSnake.bind(this), 100);
-          this.isGameRunning = true;
-        });
-      }
+        // Start the game logic
+        clearInterval(this.timer);
+        this.timer = setInterval(this.moveSnake.bind(this), 100);
+        this.isGameRunning = true;
+      });
     }
+  }
 
+  restartGame() {
+    this.startGame();
+    this.highScore = 0;
+  }
 
-    restartGame() {
-      this.startGame();
-      this.highScore = 0;
-    }
-
-    closeGame() {
-      this.router.navigate(['/']); // Add code to navigate back to the previous game selection page
+  closeGame() {
+    this.router.navigate(['/']); // Add code to navigate back to the previous game selection page
   }
 
   onKeydown(e: KeyboardEvent) {
@@ -120,15 +116,14 @@ export class SnakeComponent implements OnInit {
     posX += this.dx;
     posY += this.dy;
 
-   // Update high score if needed
-   if (this.score > this.highScore) {
-    this.highScore = this.score;
-    const userId = this.authService.getUsername(); // Get the logged-in user's ID
-    if (userId) {
-      this.authService.storeHighScore(userId, this.highScore);
+    // Update high score if needed
+    if (this.score > this.highScore) {
+      this.highScore = this.score;
+      const userId = this.authService.getUsername(); // Get the logged-in user's ID
+      if (userId) {
+        this.authService.storeHighScore(userId, this.highScore);
+      }
     }
-  }
-
 
     // Check collision with game area
     if (
@@ -157,16 +152,14 @@ export class SnakeComponent implements OnInit {
       // Update score
       this.score++;
 
-         // Update high score if needed
-         if (this.score > this.highScore) {
-          this.highScore = this.score;
-          const userId = this.authService.getUsername();
-          if (userId) {
-            this.authService.storeHighScore(userId, this.highScore);
-          }
+      // Update high score if needed
+      if (this.score > this.highScore) {
+        this.highScore = this.score;
+        const userId = this.authService.getUsername();
+        if (userId) {
+          this.authService.storeHighScore(userId, this.highScore);
         }
-
-
+      }
 
       // Place new food
       this.placeFood();

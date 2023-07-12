@@ -1,8 +1,11 @@
+// auth.service.ts
 import { Injectable } from '@angular/core';
-import { LoginForm } from '../types/auth';
 import { Router } from '@angular/router';
-import { getDatabase, ref, query, orderByChild, equalTo, get, DataSnapshot, set, child } from 'firebase/database';
-
+import { getDatabase, ref, query, orderByChild, equalTo, get, DataSnapshot, set } from 'firebase/database';
+interface LoginForm {
+  username: string;
+  password: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +22,7 @@ export class AuthService {
 
   getHighScore(userId: string): Promise<number> {
     const database = getDatabase();
-    const highScoreRef = ref(database, `users/${userId}/SnakeGameHighScore`);
+    const highScoreRef = ref(database, `HighScore/${userId}/SnakeGameHighScore`);
 
     return get(highScoreRef).then((snapshot: DataSnapshot) => {
       return snapshot.val();
@@ -39,6 +42,7 @@ export class AuthService {
   }
 
   login(loginForm: LoginForm): Promise<void> {
+
     this.isAuthenticated = false;
     const database = getDatabase();
     const usersRef = ref(database, 'users');
@@ -88,13 +92,11 @@ export class AuthService {
         });
     });
   }
+
   storeHighScore(userId: string, highScore: number): Promise<void> {
     const database = getDatabase();
-    const highScoreRef = ref(database, `HighScore/${userId}`);
-    const userData = {
-      SnakeGameHighScore: highScore
-    };
+    const highScoreRef = ref(database, `HighScore/${userId}/SnakeGameHighScore`);
 
-    return set(highScoreRef, userData);
+    return set(highScoreRef, highScore);
   }
 }
