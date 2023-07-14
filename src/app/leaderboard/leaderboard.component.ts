@@ -3,7 +3,7 @@ import { getDatabase, ref, query, orderByChild, limitToFirst, get, DataSnapshot 
 
 interface Player {
   rank: number;
-  username: string;
+  username: string | null; // Update here to allow null values
   score: number;
 }
 
@@ -26,13 +26,19 @@ export class LeaderboardComponent implements OnInit {
 
     // Load daily leaderboard
     const dailyLeaderboardRef = query(
-      ref(database, 'DailyLeaderboard'),
-      orderByChild('score'),
+      ref(database, 'HighScore'),
+      orderByChild('SnakeGameHighScore'),
       limitToFirst(12)
     );
     get(dailyLeaderboardRef)
       .then((snapshot: DataSnapshot) => {
-        this.dailyLeaderboard = this.parseLeaderboardData(snapshot);
+        this.parseLeaderboardData(snapshot, 'desc')
+          .then((leaderboard: Player[]) => {
+            this.dailyLeaderboard = leaderboard;
+          })
+          .catch((error: any) => {
+            console.error('Error loading daily leaderboard:', error);
+          });
       })
       .catch((error: any) => {
         console.error('Error loading daily leaderboard:', error);
@@ -40,13 +46,19 @@ export class LeaderboardComponent implements OnInit {
 
     // Load weekly leaderboard
     const weeklyLeaderboardRef = query(
-      ref(database, 'WeeklyLeaderboard'),
-      orderByChild('score'),
+      ref(database, 'HighScore'),
+      orderByChild('SnakeGameHighScore'),
       limitToFirst(12)
     );
     get(weeklyLeaderboardRef)
       .then((snapshot: DataSnapshot) => {
-        this.weeklyLeaderboard = this.parseLeaderboardData(snapshot);
+        this.parseLeaderboardData(snapshot, 'desc')
+          .then((leaderboard: Player[]) => {
+            this.weeklyLeaderboard = leaderboard;
+          })
+          .catch((error: any) => {
+            console.error('Error loading weekly leaderboard:', error);
+          });
       })
       .catch((error: any) => {
         console.error('Error loading weekly leaderboard:', error);
@@ -54,31 +66,49 @@ export class LeaderboardComponent implements OnInit {
 
     // Load monthly leaderboard
     const monthlyLeaderboardRef = query(
-      ref(database, 'MonthlyLeaderboard'),
-      orderByChild('score'),
+      ref(database, 'HighScore'),
+      orderByChild('SnakeGameHighScore'),
       limitToFirst(12)
     );
     get(monthlyLeaderboardRef)
       .then((snapshot: DataSnapshot) => {
-        this.monthlyLeaderboard = this.parseLeaderboardData(snapshot);
+        this.parseLeaderboardData(snapshot, 'desc')
+          .then((leaderboard: Player[]) => {
+            this.monthlyLeaderboard = leaderboard;
+          })
+          .catch((error: any) => {
+            console.error('Error loading monthly leaderboard:', error);
+          });
       })
       .catch((error: any) => {
         console.error('Error loading monthly leaderboard:', error);
       });
   }
 
-  parseLeaderboardData(snapshot: DataSnapshot): Player[] {
+  async parseLeaderboardData(snapshot: DataSnapshot, sortOrder: 'asc' | 'desc'): Promise<Player[]> {
     const leaderboard: Player[] = [];
 
     if (snapshot.exists()) {
       snapshot.forEach((childSnapshot: DataSnapshot) => {
         const playerData = childSnapshot.val();
         const player: Player = {
-          rank: leaderboard.length + 1,
-          username: playerData.username,
-          score: playerData.score
+          rank: 0,
+          username: childSnapshot.key,
+          score: playerData.SnakeGameHighScore
         };
         leaderboard.push(player);
+      });
+
+      leaderboard.sort((a, b) => {
+        if (sortOrder === 'asc') {
+          return a.score - b.score;
+        } else {
+          return b.score - a.score;
+        }
+      });
+
+      leaderboard.forEach((player, index) => {
+        player.rank = index + 1;
       });
     }
 

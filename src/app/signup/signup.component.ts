@@ -56,6 +56,10 @@ export class SignupComponent {
               email: value.email,
               password: value.password,
             }).then(() => {
+              set(ref(database,'HighScore/'+ value.username),{
+                username:value.username,
+                SnakeGameHighScore:0,
+              })
               alert('Signup successful');
               this.router.navigate(['/login']); // Optional navigation after successful signup
               this.isLoading = false; // Set isLoading to false when the process completes

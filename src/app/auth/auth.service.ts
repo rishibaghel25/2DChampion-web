@@ -96,7 +96,6 @@ export class AuthService {
   storeHighScore(userId: string, highScore: number): Promise<void> {
     const database = getDatabase();
     const highScoreRef = ref(database, `HighScore/${userId}/SnakeGameHighScore`);
-
     return set(highScoreRef, highScore);
   }
 }
