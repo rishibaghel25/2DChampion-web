@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   isAboutVisible: boolean = false;
   isGamesVisible: boolean = false;
   isProfileVisible: boolean = false;
+  isAnimationVisible: boolean = true;
 
   constructor(public authService: AuthService) {}
 
@@ -27,6 +28,8 @@ export class NavbarComponent implements OnInit {
     this.isAboutVisible = false;
     this.isGamesVisible = false;
     this.isProfileVisible=false;
+    this.isAnimationVisible=!this.isAnimationVisible;
+
   }
 
   toggleAbout(): void {
@@ -34,6 +37,8 @@ export class NavbarComponent implements OnInit {
     this.isLeaderboardVisible = false;
     this.isGamesVisible = false;
     this.isProfileVisible=false;
+    this.isAnimationVisible=!this.isAnimationVisible;
+
 
   }
 
@@ -42,14 +47,17 @@ export class NavbarComponent implements OnInit {
     this.isLeaderboardVisible = false;
     this.isAboutVisible = false;
     this.isProfileVisible=false;
+    this.isAnimationVisible=!this.isAnimationVisible;
 
   }
-  
+
   toggleProfile(): void {
     this.isProfileVisible = !this.isProfileVisible;
     this.isLeaderboardVisible = false;
     this.isAboutVisible = false;
     this.isGamesVisible = false;
+    this.isAnimationVisible=!this.isAnimationVisible;
+
 
   }
 }

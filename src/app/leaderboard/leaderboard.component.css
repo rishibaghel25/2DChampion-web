@@ -17,12 +17,15 @@ td {
 }
 
 h2 {
-  color: #000000;
-  font-weight: 800;
-  font-size: 70px;
-  display: flex;
-  position: inherit;
-  padding-left: 17%;
+  padding: 1%;
+  margin-bottom: 1%;
+  background-image: linear-gradient(to bottom, rgb(0, 0, 0), #a200ff);
+  border: solid #ffffff;
+  width: 100%;
+  text-align: center;
+  font-size: 56px;
+  color: #ffffff;
+position: relative;
 }
 
 body {
@@ -51,7 +54,6 @@ body {
 h4 {
   text-align: center;
   font-weight: 400;
-  font-size: 200%;
   font-family: 'Courier New', Courier, monospace;
   position: initial;
   height: 50px;
@@ -62,7 +64,7 @@ h4 {
 }
 
 .section {
-  background-color: linear-gradient(to right, rgb(255, 0, 255), #00ffff);
+  background-color: linear-gradient(to right, rgb(0, 0, 0), #a200ff);
   padding-left: 1%;
   width: 100%;
   display: flex;
@@ -70,9 +72,39 @@ h4 {
 }
 
 .leaderboard {
-  background: linear-gradient(to right, #FF00FF, #00ffff);
+  color: #ffffff;
+  background: linear-gradient(to right, #a200ff, #000000);
   border: solid black 1px;
   flex: 1;
   margin-right: 1%;
   padding: 1%; /* Added */
+}
+.main{
+  top: 15%;
+
+  margin-top: 2%;
+  background-color: linear-gradient(to right, rgb(0, 0, 0), #a200ff);
+  border: solid #a200ff 25px;
+    width: 1400px;
+}
+@media (max-width: 1200px) {
+  .main {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .main{
+    margin: 2%;
+  }
+  .section {
+
+    flex-direction: column;
+  }
+}
+@media(max-width:1400px){
+  .main{
+    margin: 2%;
+
+  }
 }

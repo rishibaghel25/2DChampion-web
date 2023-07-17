@@ -28,7 +28,7 @@ export class LeaderboardComponent implements OnInit {
     const dailyLeaderboardRef = query(
       ref(database, 'HighScore'),
       orderByChild('SnakeGameHighScore'),
-      limitToFirst(12)
+      limitToFirst(10)
     );
     get(dailyLeaderboardRef)
       .then((snapshot: DataSnapshot) => {
@@ -48,7 +48,7 @@ export class LeaderboardComponent implements OnInit {
     const weeklyLeaderboardRef = query(
       ref(database, 'HighScore'),
       orderByChild('SnakeGameHighScore'),
-      limitToFirst(12)
+      limitToFirst(10)
     );
     get(weeklyLeaderboardRef)
       .then((snapshot: DataSnapshot) => {
@@ -68,7 +68,7 @@ export class LeaderboardComponent implements OnInit {
     const monthlyLeaderboardRef = query(
       ref(database, 'HighScore'),
       orderByChild('SnakeGameHighScore'),
-      limitToFirst(12)
+      limitToFirst(10)
     );
     get(monthlyLeaderboardRef)
       .then((snapshot: DataSnapshot) => {
