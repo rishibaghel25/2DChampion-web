@@ -156,3 +156,22 @@ app-profile {
       box-shadow: 0 0 10px 0 #000000 inset, 0 0 10px 4px #a200ff;
     }
   }
+  @media (max-width: 576px) {
+    .leaderboard {
+
+      position: static;
+      top: initial;
+      left: initial;
+      transform: initial;
+      z-index: initial;
+      display: block;
+      justify-content: initial;
+      align-items: initial;
+    }
+  }
+  @media(max-width:420px){
+    .leaderboard{
+    bottom: 0px;
+    top: 70%;
+    }
+  }

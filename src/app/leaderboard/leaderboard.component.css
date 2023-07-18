@@ -96,15 +96,20 @@ h4 {
 @media (max-width: 576px) {
   .main{
     margin: 2%;
+    margin-top: 55%;
   }
-  .section {
 
-    flex-direction: column;
-  }
 }
 @media(max-width:1400px){
   .main{
     margin: 2%;
 
+  }
+}
+
+@media(max-width: 420px){
+  .section {
+
+    flex-direction: column;
   }
 }
