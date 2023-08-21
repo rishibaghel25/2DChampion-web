@@ -1,7 +1,7 @@
 <body>
   <div class="login-form">
     <form (ngSubmit)="submit()" #myForm="ngForm">
-      <h1 style="color: black; font-weight: 700; padding-top: 0px; padding-left: 33%;">LOGIN</h1>
+      <h1 style="color: rgb(255, 255, 255); font-weight: 500; padding-top: 0px; padding-left: 0%;">LOGIN</h1>
       <div class="content">
         <div class="input-field">
           <input type="text" id="username" placeholder="Username" [(ngModel)]="form.username" name="username">
@@ -9,7 +9,6 @@
         <div class="input-field">
           <input type="password" id="password" placeholder="Password" [(ngModel)]="form.password" name="password">
         </div>
-        <a href="#" class="link">Forgot Your Password?</a>
       </div>
       <div class="action">
         <a routerLink="/signup" class="btn">Sign up</a>
@@ -23,5 +22,5 @@
         </button>
       </div>
     </form>
-  </div>  
+  </div>
 </body>

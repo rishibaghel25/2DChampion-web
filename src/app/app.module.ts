@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { ProfileComponent } from './profile/profile.component';
 import { SnakeComponent } from './games/snake/snake.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SnakeComponent } from './games/snake/snake.component';
     GamesComponent,
     AboutComponent,
     ProfileComponent,
-    SnakeComponent
+    SnakeComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

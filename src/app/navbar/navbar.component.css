@@ -52,27 +52,11 @@ app-leaderboard{
 
 }
 app-about{
-    width: 1400px;
-    height: 750px;
-      align-items: center;
-      width:100%;
-      background-color: #000000;
-      font-family:'Courier New', Courier, monospace;
-      margin: 0;
-      padding: 0;
-    position: fixed;
-    top: 53%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  ALIGN-CONTENT: center;
+  ALIGN-ITEMS: center;
+  LEFT: 15%;
+
 }
 app-games {
   top:500px;

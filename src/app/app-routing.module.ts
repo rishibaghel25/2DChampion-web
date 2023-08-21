@@ -7,6 +7,7 @@ import { AboutComponent } from './about/about.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { GamesComponent } from './games/games.component';
 import { SnakeComponent } from './games/snake/snake.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path:'',component:NavbarComponent},
@@ -16,6 +17,9 @@ const routes: Routes = [
   {path:'leaderboard',component:LeaderboardComponent},
   {path:'games',component:GamesComponent},
   {path:'snake',component:SnakeComponent},
+  {path:'forgotpassword',component:ForgotPasswordComponent},
+
+
 
 
 

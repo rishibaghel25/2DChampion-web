@@ -1,55 +1,90 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: black;
+  border: solid 25px #a200ff;
+  margin-top: 5%;
+
 }
-body {
-  width: 1400px;
-  height: 750px;
-    align-items: center;
-    width: 80%;
-    background-color: #000000;
-    font-family:'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
-    border: solid #a200ff 25px;
+
+h1 {
+  font-weight: 900;
+  font-size: 4rem;
+  color: rgb(255, 255, 255);
+  margin-bottom: 1.5rem;
+  background-image: linear-gradient(to bottom,rgb(0,0,0),#a200ff);
+  border: solid white;
+  width: 100%;
+}
+
+h5 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #a8a8a8;
+  margin-bottom: 1.5rem;
+}
+
+.animation {
+  animation: fade-in 1s ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.containermain {
+  display: flex;
+  flex-direction: column;
+}
+
+.container2 {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.d1,
+.d2,
+.d3 {
+  flex-basis: 50%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid purple;
+  margin: 10px;
+}
+
+h6 {
+  color: white;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
   .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px;
+    padding: 10px;
   }
-  
   h1 {
-    margin-bottom: 10%;
-    background-image: linear-gradient(to right, rgb(255, 0, 255), #00ffff);
-    border: solid #ffffff;
-    width: 118%;
-    text-align: center;
-    font-size: 56px;
-    color: #ffffff;
+    font-size: 3rem;
   }
-  
   p {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #a8a8a8;
-    margin-bottom: 20px;
+    font-size: 14px;
   }
-  
-  .animation {
-    animation: fade-in 1s ease-out;
-  }
-  
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+}

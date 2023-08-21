@@ -1,7 +1,7 @@
 <body>
   <div class="Signup-form" style="margin-top: 10%;">
     <form #Signupform="ngForm" (ngSubmit)="signupUser(Signupform.value)" #myForm="ngForm">
-      <h1 style="color: black; font-weight: 700; padding-top: 0px; padding-left: 33%;">SIGNUP</h1>
+      <h1 style="color: rgb(255, 255, 255); font-weight: 500; padding-top: 0px; padding-left: 33%;">SIGNUP</h1>
       <div class="content">
         <div class="input-field">
           <input type="text" placeholder="Name" [(ngModel)]="form.name" name="name" #name="ngModel" required minlength="3" maxlength="30">

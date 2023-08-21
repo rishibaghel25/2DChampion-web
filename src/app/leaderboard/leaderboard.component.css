@@ -95,15 +95,45 @@ h4 {
 
 @media (max-width: 576px) {
   .main{
+    padding: 2rem;
     margin: 2%;
     margin-top: 55%;
   }
 
 }
-@media(max-width:1400px){
+@media(max-width:1490px){
   .main{
-    margin: 2%;
-
+    width: 1250px;
+    margin: 5%;
+    margin-right: 30px;
+    position: static;
+      top: initial;
+      left: initial;
+      transform: initial;
+      z-index: initial;
+      display: block;
+      justify-content: initial;
+      align-items: initial;
+  }
+}
+@media(max-width:1300px){
+  .main{
+    width: 1087px;
+    height: 951px;
+    margin-top: 185px;
+    margin-right: 109px; overflow-y: scroll; overflow-x:hidden;
+  }
+}
+@media(max-width:1090px){
+  .main{
+    width: 1087px;
+    height: 951px;
+    margin-top: 185px;
+    margin-right: 109px; overflow-y: scroll; overflow-x:hidden;
+  }
+  .div{
+    width: 422px;
+    margin-right: 186px
   }
 }
 

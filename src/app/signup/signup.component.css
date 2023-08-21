@@ -10,10 +10,10 @@
     padding-left: 165px;
     position: relative;
     font-size: 50px;
-    background-color: #a200ff;
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0), #a200ff);
     border: solid white 2px;
   }
-  
+
   body {  font-family: 'Courier New', Courier, monospace;
     height: 1001px;
     padding-top: 52px;
@@ -21,9 +21,9 @@
     background: black;  /* background: #e35869; */
     font-family: 'Rubik', sans-serif;
   }
-  
+
   .Signup-form {
-    
+
     background: linear-gradient(to right, #FF00FF, #00ffff);
     width: 500px;
     margin: 65px auto;
@@ -139,7 +139,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 .btn{
   width: 100%;
@@ -156,4 +156,29 @@
   outline: 0;
   -webkit-transition: all .3s;
   transition: all .3s;
+}
+/* Keep your existing CSS rules */
+
+/* Additional rules for responsiveness */
+@media (max-width: 768px) {
+  .signup-form {
+    width: 90%; /* Adjust the width as desired */
+    margin: 10% auto; /* Adjust the margin as desired */
+  }
+
+  .signup-form h1 {
+    font-size: 8vw; /* Adjust the font size as desired */
+  }
+
+  .input-field input {
+    font-size: 3vw; /* Adjust the font size as desired */
+  }
+
+  .signup-form .action button {
+    padding: 4vw 18px; /* Adjust the padding as desired */
+  }
+
+  .signup-form a.link {
+    margin-top: 10px; /* Adjust the margin as desired */
+  }
 }
